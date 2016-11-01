@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.zl.pullimagedemo.com.zl.DetailDemo.MainActivity">
+
+    <com.zl.detaillib.view.DetailView
+        android:id="@+id/dv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zl.detaillib.view.PageOneView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/vp_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        ></android.support.v4.view.ViewPager>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="hhhhhh"
+                        android:textSize="50sp"/>
+                </LinearLayout>
+            </com.zl.detaillib.view.PageOneView>
+
+            <com.zl.detaillib.view.DetailWebView
+                android:id="@+id/ewv_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.zl.detaillib.view.DetailWebView>
+
+        </LinearLayout>
+
+    </com.zl.detaillib.view.DetailView>
+</LinearLayout>
