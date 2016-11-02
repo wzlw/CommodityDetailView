@@ -55,7 +55,7 @@ public class DetailWebView extends WebView {
                  *如果是横向移动,就让父控件重新获得触摸事件
                  */
                 if (Math.abs(gapHorizontal) > 120) {
-                    getParent().getParent().requestDisallowInterceptTouchEvent(false);
+                    getParent().getParent().requestDisallowInterceptTouchEvent(true);
                 }
 
 
