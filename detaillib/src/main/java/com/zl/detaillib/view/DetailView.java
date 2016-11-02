@@ -24,6 +24,7 @@ public class DetailView extends ScrollView {
     private boolean isPageOne = true;
     private OnLoadUrlListener listener;
     private Context context;
+    private boolean isLoad = true;
 
     public DetailView(Context context) {
         this(context, null);
@@ -90,6 +91,7 @@ public class DetailView extends ScrollView {
                         this.smoothScrollTo(0, mHeight);
                         if (listener != null){
                             mDetailView.loadUrl(listener.loadUrl());
+                            isLoad = false;
                         }
                         this.setFocusable(false);
                         isPageOne = false;
@@ -101,8 +103,9 @@ public class DetailView extends ScrollView {
                         isPageOne = true;
                     } else {
                         this.smoothScrollTo(0, mHeight);
-                        if (listener != null){
+                        if (listener != null && isLoad){
                             mDetailView.loadUrl(listener.loadUrl());
+                            isLoad = false;
                         }
                     }
                 }
