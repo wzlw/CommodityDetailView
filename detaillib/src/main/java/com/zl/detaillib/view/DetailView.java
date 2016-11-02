@@ -1,6 +1,7 @@
 package com.zl.detaillib.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.zl.detaillib.utils.SizeUtils;
+import com.zl.pullimagedemo.detaillib.R;
 
 /**
  * Created by zl on 2016/11/1.
@@ -36,18 +38,21 @@ public class DetailView extends ScrollView {
 
     public DetailView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
+        init(context, attrs);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public DetailView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(context);
+        init(context, attrs);
     }
 
-    private void init(Context context) {
+    private void init(Context context, AttributeSet attrs) {
         this.context = context;
-        mHeight = SizeUtils.getScreenHeight(context) - SizeUtils.getStatusBarHeight(context) - SizeUtils.dp2px(context, 20);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.WapperPadding);
+        float dimension = a.getDimension(R.styleable.WapperPadding_padding, 0);
+        mHeight = SizeUtils.getScreenHeight(context) - SizeUtils.getStatusBarHeight(context) - SizeUtils.dp2px(context, dimension);
+        a.recycle();
     }
 
     @Override
@@ -89,7 +94,7 @@ public class DetailView extends ScrollView {
                         this.smoothScrollTo(0, 0);
                     } else {
                         this.smoothScrollTo(0, mHeight);
-                        if (listener != null){
+                        if (listener != null && isLoad){
                             mDetailView.loadUrl(listener.loadUrl());
                             isLoad = false;
                         }

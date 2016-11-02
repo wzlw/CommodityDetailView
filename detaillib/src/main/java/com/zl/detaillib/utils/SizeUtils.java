@@ -1,7 +1,9 @@
 package com.zl.detaillib.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.Window;
 import android.view.WindowManager;
 
 import java.lang.reflect.Field;
@@ -46,12 +48,15 @@ public class SizeUtils {
     /**
      * dp转px
      *
-     * @param context
-     * @param dip
-     * @return
      */
-    static public int dp2px(Context context, int dip) {
-        return (int) (dip * getScreenDensity(context) + 0.5f);
+    public static int dp2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    static public int getTitleHeight(Activity activity){
+        int top = activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
+        return top-getStatusBarHeight(activity);
     }
 
 

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 
 import com.zl.pullimagedemo.R;
@@ -21,13 +23,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp_main);
         DetailView dv = (DetailView) findViewById(R.id.dv_main);
         dv.setOnLoadUrlListener(new DetailView.OnLoadUrlListener() {
             @Override
             public String loadUrl() {
-                return "http://www.goyoo.com";
+                return "http://www.baidu.com";
             }
 
             @Override
