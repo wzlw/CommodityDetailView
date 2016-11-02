@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -133,5 +134,18 @@ public class DetailView extends ScrollView {
     protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
 //        Log.e("","====overScrollBy===DetailView==="+deltaX+"========"+deltaY);
         return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, maxOverScrollY, isTouchEvent);
+    }
+
+    /**
+     * 回到顶端的操作
+     */
+    public void scrollTop(){
+        if (isPageOne){
+            return;
+        }
+        this.smoothScrollTo(0, 0);
+        isPageOne = true;
+        mPageOne.smoothScrollTo(0,0);
+        mDetailView.scrollTo(0,0);
     }
 }

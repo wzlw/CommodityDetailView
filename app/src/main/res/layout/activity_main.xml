@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:wapperpadding="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
@@ -91,4 +91,15 @@
         </LinearLayout>
 
     </com.zl.detaillib.view.DetailView>
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_main"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@mipmap/ic_launcher"
+        />
+</RelativeLayout>

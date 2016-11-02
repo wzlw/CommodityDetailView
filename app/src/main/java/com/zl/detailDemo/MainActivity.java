@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
+import android.widget.ImageView;
 
 import com.zl.pullimagedemo.R;
 import com.zl.detaillib.view.DetailView;
@@ -26,11 +27,20 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp_main);
-        DetailView dv = (DetailView) findViewById(R.id.dv_main);
+
+        final DetailView dv = (DetailView) findViewById(R.id.dv_main);
+        ImageView iv = (ImageView) findViewById(R.id.iv_main);
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dv.scrollTop();
+            }
+        });
+
         dv.setOnLoadUrlListener(new DetailView.OnLoadUrlListener() {
             @Override
             public String loadUrl() {
-                return "http://www.baidu.com";
+                return "http://www.fs.com/index.php?modules=phone&handler=products_description&request_action=description&products_id=33979";
             }
 
             @Override
